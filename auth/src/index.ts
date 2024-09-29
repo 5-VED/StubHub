@@ -1,21 +1,21 @@
 import express from "express"
 
 // Importing Routers
-import { signupRouter } from "./router/signup"
-import { signinRouter } from "./router/signin"
-import { currentUsersRouter } from "./router/current-users"
+import { signupRouter } from "./routes/signup"
+import { signinRouter } from "./routes/signin"
+import { currentUserRouter } from "./routes/current-user"
 
 // Import Error Handaler
-import { errorHandaler } from "./middleware/error-handaler"
+import { errorHandler } from "./middlewares/error-handler"
 
 const app = express()
 app.use(express.json())
 
 app.use(signupRouter)
 app.use(signinRouter)
-app.use(currentUsersRouter)
+app.use(currentUserRouter)
 
-app.use(errorHandaler)
+app.use(errorHandler)
 
 app.listen(3000, () => {
     console.log("Auth Service listeninig on port 3000")
